@@ -12,6 +12,8 @@ def step_impl(context):
 @when(u'slide to 10k pageviews')
 def step_impl(context):
     context.page.fill(locator.slider,'0')
+    views = context.page.locator(locator.page_views).text_content()
+    assert views == "10K PageViews"
 
 @then(u'the price should be $8.00 / month')
 def step_impl(context):

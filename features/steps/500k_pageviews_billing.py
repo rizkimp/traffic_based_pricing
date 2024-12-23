@@ -7,6 +7,8 @@ from playwright.sync_api import sync_playwright
 @when(u'slide to 500k pageviews')
 def step_impl(context):
     context.page.fill(locator.slider,'75')
+    views = context.page.locator(locator.page_views).text_content()
+    assert views == "500K PageViews"
 
 @then(u'the price should be $24.00 / month')
 def step_impl(context):
