@@ -4,16 +4,16 @@ from behave import *
 from locators import *
 from playwright.sync_api import sync_playwright
 
-@when(u'slide to 50k pageviews')
+@when(u'slide to 100k pageviews')
 def step_impl(context):
-    context.page.fill(locator.slider,'25')
+    context.page.fill(locator.slider,'50')
 
-@then(u'the price should be $12.00 / month')
+@then(u'the price should be $16.00 / month')
+def step_impl(context):
+    price = context.page.locator(locator.dollar_price_permonth).text_content()
+    assert price == "$16.00"
+
+@then(u'the price should be $12.00 / year in 100k')
 def step_impl(context):
     price = context.page.locator(locator.dollar_price_permonth).text_content()
     assert price == "$12.00"
-
-@then(u'the price should be $9.00 / year')
-def step_impl(context):
-    price = context.page.locator(locator.dollar_price_permonth).text_content()
-    assert price == "$9.00"
