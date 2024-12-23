@@ -3,7 +3,6 @@ import asyncio
 from behave import *
 from locators import *
 from playwright.sync_api import sync_playwright
-from playwright.sync_api import expect
 
 @given(u'visit bitcoin price calculator')
 def step_impl(context):
